@@ -1,10 +1,23 @@
+import React from 'react'
+import { Route, Routes } from 'react-router'
+import "./App.css"
+import Home from './Pages/Home/Home'
+import Footer from './Pages/Share/Footer'
+import Navbar from './Pages/Share/Navbar'
 
-import './App.css'
-
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <h2 className='text-primary'>Hello world</h2>
+    <div>
+      <Navbar />
+
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/home' element={<Home />} />
+
+      </Routes>
+
+      <Footer />
+
     </div>
   )
 }
