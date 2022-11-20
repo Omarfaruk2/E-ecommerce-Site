@@ -1,0 +1,34 @@
+[
+    {
+        "name": "cement",
+        "ProductName": "ACC Concrete Cement",
+        "grade": "CEMENT, OPC 53 GRADE CEMENT",
+        "price": 400,
+        "brand": "ACC Cement",
+        "img": "https://cementshop.in/wp-content/uploads/2021/06/ACC-PPC-Cement.jpg"
+    },
+    {
+        "name": "cement",
+        "ProductName": "ACC Concrete Cement",
+        "grade": "Birla A1 OPC 53 Grade Cement",
+        "price": 360.00,
+        "brand": "Birla a1 Cement",
+        "img": "https://cementshop.in/wp-content/uploads/2021/06/Birla-A1-PPC-Cement.jpg"
+    },
+    {
+        "name": "cement",
+        "ProductName": "Maha OPC 53 Grade Cement",
+        "grade": "Maha OPC 53 Grade Cement",
+        "price": 370.00,
+        "brand": "Maha Cement",
+        "img": "https://cementshop.in/wp-content/uploads/2021/06/Maha-ppc-cement.jpg"
+    },
+    {
+        "name": "waterTanks",
+        "ProductName": "Gazi Water Tanks",
+        "grade": "Gazi Grade Cement",
+        "price": 9650,
+        "brand": "Gazi Tanks",
+        "img": "https://storage.googleapis.com/storge.buildbari.com.bd/wp-content/uploads/2020/04/16170818/Blow-Molded-Tanks.png"
+    }
+]
