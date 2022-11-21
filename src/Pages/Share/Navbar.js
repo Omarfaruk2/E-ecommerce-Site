@@ -1,8 +1,25 @@
+import { signOut } from 'firebase/auth'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { Link, useNavigate } from 'react-router-dom'
 import logo from "../../../src/img/logo.png"
+import auth from '../../firebase.init'
+import Loadding from './Loadding'
 
 const Navbar = () => {
+
+    const navigate = useNavigate()
+    const [user, loading,] = useAuthState(auth)
+
+    if (loading) {
+        return <Loadding />
+    }
+
+    const handlelogout = () => {
+        signOut(auth)
+        localStorage.removeItem("accessToken")
+    }
+
     return (
         <div>
             <div className="navbar bg-base-100">
@@ -34,9 +51,33 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
-                        <li><a>Item 1</a></li>
-                        <li><a>Item 3</a></li>
-                        <li><a>Log In</a></li>
+                        <li
+                            onClick={() => navigate("/")}
+                        ><a>Home</a></li>
+
+                        <li
+                            onClick={() => navigate("/singup")}
+                        ><a>Sign Up</a></li>
+
+                        <li
+                            onClick={() => navigate("/dashboard")}
+                        ><a>Dashboard</a></li>
+
+
+
+                        {
+                            user ?
+                                <div>
+                                    <button className='logoutbutton' onClick={() => handlelogout()} href="">Log Out</button>
+                                </div>
+
+                                :
+                                <li
+                                    onClick={() => navigate("/login")}
+                                ><a>Log In</a></li>
+                        }
+
+
                     </ul>
                 </div>
                 <div className="navbar-end">
