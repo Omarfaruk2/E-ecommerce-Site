@@ -1,6 +1,7 @@
 [
     {
-        "name": "cement",
+        "_id": "6379af2605abeee14ccacb87",
+        "categoryName": "cement",
         "ProductName": "ACC Concrete Cement",
         "grade": "CEMENT, OPC 53 GRADE CEMENT",
         "price": 400,
@@ -8,27 +9,91 @@
         "img": "https://cementshop.in/wp-content/uploads/2021/06/ACC-PPC-Cement.jpg"
     },
     {
-        "name": "cement",
+        "_id": "6379af3a05abeee14ccacb88",
+        "categoryName": "cement",
         "ProductName": "ACC Concrete Cement",
         "grade": "Birla A1 OPC 53 Grade Cement",
-        "price": 360.00,
+        "price": 360,
         "brand": "Birla a1 Cement",
         "img": "https://cementshop.in/wp-content/uploads/2021/06/Birla-A1-PPC-Cement.jpg"
     },
     {
-        "name": "cement",
+        "_id": "6379af4b05abeee14ccacb89",
+        "categoryName": "cement",
         "ProductName": "Maha OPC 53 Grade Cement",
         "grade": "Maha OPC 53 Grade Cement",
-        "price": 370.00,
+        "price": 370,
         "brand": "Maha Cement",
         "img": "https://cementshop.in/wp-content/uploads/2021/06/Maha-ppc-cement.jpg"
     },
     {
-        "name": "waterTanks",
+        "_id": "6379b4fa05abeee14ccacb8a",
+        "categoryName": "waterTanks",
         "ProductName": "Gazi Water Tanks",
         "grade": "Gazi Grade Cement",
         "price": 9650,
         "brand": "Gazi Tanks",
         "img": "https://storage.googleapis.com/storge.buildbari.com.bd/wp-content/uploads/2020/04/16170818/Blow-Molded-Tanks.png"
+    },
+    {
+        "_id": "637c4ee44807ede603764e01",
+        "sellerEmail": "jon@gmail.com",
+        "img": "https://i.ibb.co/bNtTS0j/composition-beautiful-flowers-wallpaper.jpg",
+        "categoryName": "Fllower",
+        "price": "10",
+        "des": "Nice"
+    },
+    {
+        "_id": "637c5712719651f29140064f",
+        "sellerEmail": "jon@gmail.com",
+        "img": "https://i.ibb.co/PFMWK26/cat.jpg",
+        "categoryName": "cement",
+        "price": "50",
+        "ProductName": "Omar",
+        "grade": "no grade",
+        "des": "55",
+        "brand": "no bramd"
+    },
+    {
+        "_id": "637c6fc2e28db170c518eaf9",
+        "sellerEmail": "jon@gmail.com",
+        "img": "https://i.ibb.co/2hXV32D/84409004-205585217285066-3206789631651610624-n.jpg",
+        "categoryName": "cement",
+        "price": "500",
+        "ProductName": "Idea",
+        "grade": "a",
+        "des": "kljkj",
+        "brand": "d"
+    },
+    {
+        "_id": "637c79e0e28db170c518eafa",
+        "sellerEmail": "jon@gmail.com",
+        "img": "https://i.ibb.co/Q6d6dBj/FB-IMG-16123272530577735.jpg",
+        "categoryName": "cement",
+        "price": "50",
+        "ProductName": "Ambuja",
+        "grade": "hello",
+        "des": "af adfasd asdfsd",
+        "brand": "squaree"
+    },
+    {
+        "sellerEmail": "jon@gmail.com",
+        "img": "https://i.ibb.co/1nPpMfj/cat.jpg",
+        "categoryName": "hardware",
+        "price": "34",
+        "ProductName": "Omar",
+        "grade": "sdf",
+        "description": "description",
+        "brand": "fdds"
+    },
+    {
+        "sellerEmail": "jon@gmail.com",
+        "img": "https://i.ibb.co/XbHMFYV/bd.jpg",
+        "categoryName": "waterTanks",
+        "price": "23",
+        "ProductName": "Omar",
+        "grade": "no grade",
+        "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus, sed? Ut dolore aliquam quis perferendis beatae autem officiis quod animi!",
+        "brand": "no bramd"
     }
 ]

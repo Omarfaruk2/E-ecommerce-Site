@@ -1,9 +1,28 @@
 import { Icon } from '@iconify/react'
 import React from 'react'
+import { useQuery } from 'react-query'
 import { Outlet } from 'react-router'
 import { Link } from 'react-router-dom'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import auth from '../../firebase.init'
+import useAdmin from '../Hooks/useAdmin'
+import Loadding from '../Share/Loadding'
+import useSeller from '../Hooks/useSeller'
+
 
 const Dashboard = () => {
+
+    const [user, loading,] = useAuthState(auth)
+
+    const [admin] = useAdmin(user)
+    const [seller] = useSeller(user)
+
+    if (loading) {
+        return <Loadding />
+    }
+
+    console.log(seller, "seller paisi")
+
     return (
         <div className="drawer drawer-mobile">
             <input id="Dashboard-SIdebar" type="checkbox" className="drawer-toggle" />
@@ -18,26 +37,32 @@ const Dashboard = () => {
                     {/* <!-- Sidebar content here --> */}
                     <li><Link to="/dashboard"><Icon icon="healthicons:ui-user-profile" /> My Profile</Link></li>
 
-                    {/* {!admin && */}
-                    <>
-                        <li><Link to="/dashboard/alluser"><Icon icon="icon-park-solid:transaction-order" /> All User</Link></li>
-                        <li><Link to="/dashboard/addreview"><Icon icon="carbon:review" />Review</Link></li>
-                    </>
-                    {/* } */}
-                    {/*                     
                     {admin &&
                         <>
-                            <li><Link to="/dashboard/additem"><Icon icon="bxs:add-to-queue" />Add Item</Link></li>
-                            <li><Link to="/dashboard/allOrder"><Icon icon="fluent:select-all-off-24-filled" />All Order</Link></li>
-                            <li><Link to="/dashboard/alluser"><Icon icon="fa-solid:users" />All User</Link></li>
-                            <li><Link to="/dashboard/manageitems"><Icon icon="ic:baseline-manage-accounts" />Manage Items</Link></li>
+                            <li><Link to="/dashboard/alluser"><Icon icon="icon-park-solid:transaction-order" /> All User</Link></li>
+                            <li><Link to="/dashboard/allorder"><Icon icon="carbon:review" />All Order</Link></li>
+                            <li li > <Link to="/dashboard/allProducts"><Icon icon="carbon:review" />All Products</Link></li>
+
                         </>
-                    }  */}
+                    }
+                    {seller &&
+                        <>
+                            <li><Link to="/dashboard/addProducts"><Icon icon="carbon:review" />Add Products</Link></li>
+                            <li><Link to="/dashboard/myaddingProducts"><Icon icon="carbon:review" />My Adding Products</Link></li>
+                        </>
+
+                    }
+                    {!admin & !seller &&
+                        <>
+                            <li><Link to="/dashboard/myorder"><Icon icon="carbon:review" />My Order</Link></li>
+                        </>
+                    }
+
 
                 </ul>
 
             </div>
-        </div>
+        </div >
     )
 }
 

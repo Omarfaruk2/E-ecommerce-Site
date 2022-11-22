@@ -5,8 +5,13 @@ import Login from './Pages/Authentication/Login'
 import RequireAuth from './Pages/Authentication/RequireAuth'
 import SellerLogin from './Pages/Authentication/SellerLogin'
 import SignUp from './Pages/Authentication/SignUp'
+import AddProducts from './Pages/Dashboard/AddProducts'
+import AllProdcts from './Pages/Dashboard/AllProdcts'
 import AllUser from './Pages/Dashboard/AllUser'
 import Dashboard from './Pages/Dashboard/Dashboard'
+import GetAllOrder from './Pages/Dashboard/GetAllOrder'
+import MyAddingProducts from './Pages/Dashboard/MyAddingProducts'
+import MyOrder from './Pages/Dashboard/MyOrder'
 import Home from './Pages/Home/Home'
 import Item from './Pages/Items/Item'
 import SingleShipItems from './Pages/Items/SingleShipItems'
@@ -30,20 +35,21 @@ const App = () => {
         <Route path="dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} >
           {/* <Route index element={<Myprofile />}></Route> */}
           <Route path='alluser' element={<AllUser />}></Route>
+          <Route path='myorder' element={<MyOrder />}></Route>
+          <Route path='allorder' element={<GetAllOrder />}></Route>
+          <Route path='addProducts' element={<AddProducts />}></Route>
+          <Route path='allProducts' element={<AllProdcts />}></Route>
+          <Route path='myaddingProducts' element={<MyAddingProducts />}></Route>
 
         </Route>
 
 
-
-
-
-
-        <Route path='/items/:item' element={
+        <Route path='/items/:categoryName' element={
           <RequireAuth>
             <Item />
           </RequireAuth>
         } />
-        <Route path='/items/:item/:id' element={<SingleShipItems />} />
+        <Route path='/items/:categoryName/:id' element={<SingleShipItems />} />
 
       </Routes>
 

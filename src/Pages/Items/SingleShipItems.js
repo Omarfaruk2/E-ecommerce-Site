@@ -10,9 +10,9 @@ import Loadding from '../Share/Loadding'
 const SingleShipItems = () => {
 
     const param = useParams()
-    const { id, item } = param
+    const { id, categoryName } = param
 
-    // console.log(id, item)
+    // console.log(id, categoryName)
     const [user, loading,] = useAuthState(auth)
     const navigate = useNavigate()
     const [totalprice, setTotalPrice] = useState('')
@@ -25,14 +25,14 @@ const SingleShipItems = () => {
 
 
     const { isLoading, error, data, refetch } = useQuery(['repoData'], () =>
-        fetch(`http://localhost:5000/item/${item}/${id}`).then(res =>
+        fetch(`http://localhost:5000/item/${categoryName}/${id}`).then(res =>
             res.json()
         )
     )
 
     const main = data[0]
 
-    if (!main) {
+    if (!main || isLoading || loading) {
         <Loadding />
     }
 
@@ -41,36 +41,36 @@ const SingleShipItems = () => {
 
     const onSubmit = (from) => {
 
-        console.log(totalprice, "helo")
+        // console.log(totalprice, "helo")
         const quantity = valueRaf.current?.value
         const address = from.address
         const phone = from.phone
         // const totalprice = from.totalprice
         // const totalprice = totalprice
-        const email = user.email
+        const buyingEmail = user.email
         const username = user?.displayName
 
-        let voo = { address, phone, quantity, totalprice, email, name, img, username }
-        // console.log(voo)
+        let voo = { address, phone, quantity, totalprice, buyingEmail, name, img, username }
+        console.log(voo)
 
-        // refetch()
+        refetch()
 
 
-        // const url = "https://cryptic-badlands-38526.herokuapp.com/orders"
-        // fetch(url, {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify(voo)
-        // })
-        //     .then(res => res.json())
-        //     .then(result => {
-        //         if (result.insertedId);
-        //         voo = {}
-        //         refetch()
-        //         navigate('/dashboard/order')
-        //     })
+        const url = "http://localhost:5000/myorders"
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(voo)
+        })
+            .then(res => res.json())
+            .then(result => {
+                if (result.insertedId);
+                voo = {}
+                refetch()
+                navigate('/dashboard/myorder')
+            })
 
     }
 

@@ -6,12 +6,13 @@ import SingleItems from './SingleItems'
 const Item = () => {
 
     const param = useParams()
-    const item = param?.item
+    const categoryName = param?.categoryName
 
+    console.log(categoryName)
 
 
     const { isLoading, error, data: products, refetch } = useQuery(['repoData'], () =>
-        fetch(`http://localhost:5000/item/${item}`).then(res =>
+        fetch(`http://localhost:5000/item/${categoryName}`).then(res =>
             res.json()
         )
     )
@@ -25,7 +26,7 @@ const Item = () => {
 
     return (
         <div>
-            <h2>{item}</h2>
+            <h2>{categoryName}</h2>
 
             <div className='grid lg:grid-cols-4 lg-w-11/12 mx-auto  sm:grid-cols-1'>
 
