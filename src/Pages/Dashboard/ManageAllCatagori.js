@@ -15,7 +15,7 @@ const ManageAllCatagori = () => {
     const [seller] = useSeller(user)
 
     const { isLoading, error, data: catagorio, refetch } = useQuery(['loadAllCatagori'], () =>
-        fetch('http://localhost:5000/catagorilist').then(res =>
+        fetch('https://desolate-river-18269.herokuapp.com/catagorilist').then(res =>
             res.json()
         )
     )
@@ -41,7 +41,7 @@ const ManageAllCatagori = () => {
                         icon: "success",
                     })
 
-                    const url = `http://localhost:5000/catagorilist/${id}`
+                    const url = `https://desolate-river-18269.herokuapp.com/catagorilist/${id}`
                     fetch(url, {
                         method: "DELETE"
                     })

@@ -24,7 +24,7 @@ const AddProducts = () => {
 
 
     const { isLoading, error, data: catagorilist, refetch } = useQuery(['catagorilist'], () =>
-        fetch('http://localhost:5000/catagorilist').then(res =>
+        fetch('https://desolate-river-18269.herokuapp.com/catagorilist').then(res =>
             res.json()
         )
     )
@@ -81,7 +81,7 @@ const AddProducts = () => {
                         const role = "admin"
                         const final = { role: role, ...fullFile }
 
-                        const url = "http://localhost:5000/item"
+                        const url = "https://desolate-river-18269.herokuapp.com/item"
                         fetch(url, {
                             method: 'POST',
                             headers: {
@@ -102,7 +102,7 @@ const AddProducts = () => {
                         const role = "seller"
                         const final = { role: role, ...allFile }
 
-                        const url = "http://localhost:5000/item"
+                        const url = "https://desolate-river-18269.herokuapp.com/item"
                         fetch(url, {
                             method: 'POST',
                             headers: {

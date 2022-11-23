@@ -16,7 +16,7 @@ const useToken = user => {
         if (email) {
             // console.log(currentUser, "currentUser")
 
-            fetch(`http://localhost:5000/user/${email}`, {
+            fetch(`https://desolate-river-18269.herokuapp.com/user/${email}`, {
                 method: "PUT",
                 headers: {
                     'content-type': "application/json"

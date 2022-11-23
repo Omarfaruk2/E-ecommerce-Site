@@ -50,7 +50,7 @@ const AddCategories = () => {
                         const final = { role: role, ...allFile }
 
 
-                        const url = "http://localhost:5000/catagorilist"
+                        const url = "https://desolate-river-18269.herokuapp.com/catagorilist"
                         fetch(url, {
                             method: 'POST',
                             headers: {
@@ -72,7 +72,7 @@ const AddCategories = () => {
                         const final = { role: role, ...allFile }
 
 
-                        const url = "http://localhost:5000/catagorilist"
+                        const url = "https://desolate-river-18269.herokuapp.com/catagorilist"
                         fetch(url, {
                             method: 'POST',
                             headers: {

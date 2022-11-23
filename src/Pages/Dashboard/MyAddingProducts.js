@@ -9,7 +9,7 @@ const MyAddingProducts = () => {
     const [user, loading,] = useAuthState(auth)
 
     const { isLoading, error, data, refetch } = useQuery(['addingItem'], () =>
-        fetch(`http://localhost:5000/itemquery?email=${user?.email}`).then(res =>
+        fetch(`https://desolate-river-18269.herokuapp.com/itemquery?email=${user?.email}`).then(res =>
             res.json()
         )
     )
@@ -30,7 +30,7 @@ const MyAddingProducts = () => {
                         icon: "success",
                     })
 
-                    const url = `http://localhost:5000/item/${id}`
+                    const url = `https://desolate-river-18269.herokuapp.com/item/${id}`
                     fetch(url, {
                         method: "DELETE"
                     })

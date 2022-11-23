@@ -6,7 +6,7 @@ const Categories = () => {
 
 
     const { isLoading, error, data: catagorio, refetch } = useQuery(['repoDatdfa'], () =>
-        fetch('http://localhost:5000/catagorilist').then(res =>
+        fetch('https://desolate-river-18269.herokuapp.com/catagorilist').then(res =>
             res.json()
         )
     )

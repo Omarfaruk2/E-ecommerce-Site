@@ -12,7 +12,7 @@ const Item = () => {
 
 
     const { isLoading, error, data: products, refetch } = useQuery(['repoData'], () =>
-        fetch(`http://localhost:5000/item/${categoryName}`).then(res =>
+        fetch(`https://desolate-river-18269.herokuapp.com/item/${categoryName}`).then(res =>
             res.json()
         )
     )

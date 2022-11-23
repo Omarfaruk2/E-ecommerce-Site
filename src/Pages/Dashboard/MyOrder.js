@@ -9,7 +9,7 @@ const MyOrder = () => {
     const [user, loading,] = useAuthState(auth)
 
     const { isLoading, error, data, refetch } = useQuery(['myOrdersd'], () =>
-        fetch(`http://localhost:5000/myorders?email=${user.email}`).then(res =>
+        fetch(`https://desolate-river-18269.herokuapp.com/myorders?email=${user.email}`).then(res =>
             res.json()
         )
     )

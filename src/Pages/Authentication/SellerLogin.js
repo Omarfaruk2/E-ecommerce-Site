@@ -32,7 +32,7 @@ const SellerLogin = () => {
 
         const currentUser = { email: data?.email, displayName: displayName, role: role }
 
-        fetch(`http://localhost:5000/user/${data?.email}`, {
+        fetch(`https://desolate-river-18269.herokuapp.com/user/${data?.email}`, {
             method: "PUT",
             headers: {
                 'content-type': "application/json"

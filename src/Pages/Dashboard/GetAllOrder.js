@@ -8,7 +8,7 @@ const GetAllOrder = () => {
 
 
     const { isLoading, error, data, refetch } = useQuery(['AllOrders'], () =>
-        fetch("http://localhost:5000/allorders").then(res =>
+        fetch("https://desolate-river-18269.herokuapp.com/allorders").then(res =>
             res.json()
         )
     )
@@ -34,7 +34,7 @@ const GetAllOrder = () => {
                         icon: "success",
                     })
 
-                    const url = `http://localhost:5000/allorders/${id}`
+                    const url = `https://desolate-river-18269.herokuapp.com/allorders/${id}`
                     fetch(url, {
                         method: "DELETE"
                     })

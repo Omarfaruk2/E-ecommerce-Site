@@ -7,7 +7,7 @@ const AllUser = () => {
 
 
     const { isLoading, error, data: alluser, refetch } = useQuery(['helluser'], () =>
-        fetch("http://localhost:5000/user").then(res =>
+        fetch("https://desolate-river-18269.herokuapp.com/user").then(res =>
             res.json()
         )
     )
@@ -34,7 +34,7 @@ const AllUser = () => {
                     })
 
 
-                    fetch(`http://localhost:5000/user/admin/${email}`, {
+                    fetch(`https://desolate-river-18269.herokuapp.com/user/admin/${email}`, {
                         method: 'PUT',
                         headers: {
                             "authorization": `Bearer ${localStorage.getItem("accessToken")}`
@@ -81,7 +81,7 @@ const AllUser = () => {
                     })
 
 
-                    const url = `http://localhost:5000/user/${id}`
+                    const url = `https://desolate-river-18269.herokuapp.com/user/${id}`
                     console.log(id)
                     fetch(url, {
                         method: "DELETE"
