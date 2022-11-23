@@ -81,24 +81,35 @@ const Login = () => {
                                     <p>{errors.password?.message}</p>
 
                                     <label className="label">
-                                        <button>Forgot password?</button> <br /> <br />
-                                        <p>New to Made Easy Menufacturere?
-                                            <Link className="text-primary underline" to="/singup">Creat new account</Link>
-                                        </p>
-                                        <br />
-                                        <p className='mt-6'>Are you seller ?
-                                            <Link className="text-primary underline" to="/sellerlogin">Creat new account</Link>
+
+                                        <p>New to WEB-SHOP?
+                                            <Link className="text-secondary underline" to="/singup">Creat new account</Link>
                                         </p>
 
-                                        {/* <Link to="/singup">SingUp</Link> */}
 
                                     </label>
+
+                                    <label className="label">
+
+                                        <p className='mt-6'>Are you seller ?
+                                            <Link className="text-secondary underline" to="/sellerlogin">Creat a seller account</Link>
+                                        </p>
+
+                                    </label>
+
                                 </div>
                                 <div className="form-control mt-6">
                                     <button type="submit" className="btn btn-primary">Login</button>
                                 </div>
                             </form>
                             {/* end from */}
+
+                            <div className="grid h-15 flex-grow card  rounded-box place-items-center">
+                                <button onClick={() => handlegoogleSingin()} className="btn btn-secondary">Login With Google</button>
+                            </div>
+
+                            {/* google sign in end */}
+
                         </div>
                     </div>
                 </div>

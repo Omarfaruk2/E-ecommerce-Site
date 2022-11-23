@@ -5,15 +5,23 @@ import { useForm } from 'react-hook-form'
 import { useQuery } from 'react-query'
 import { useNavigate, useParams } from 'react-router'
 import auth from '../../firebase.init'
+import useAdmin from '../Hooks/useAdmin'
+import useSeller from '../Hooks/useSeller'
 import Loadding from '../Share/Loadding'
 
 const SingleShipItems = () => {
+
+    const [user, loading,] = useAuthState(auth)
+
+    const [admin] = useAdmin(user)
+    const [seller] = useSeller(user)
+
+    console.log(seller, "seller", admin, "admin")
 
     const param = useParams()
     const { id, categoryName } = param
 
     // console.log(id, categoryName)
-    const [user, loading,] = useAuthState(auth)
     const navigate = useNavigate()
     const [totalprice, setTotalPrice] = useState('')
     // const [quantity, setQuantity] = useState('')
@@ -36,8 +44,9 @@ const SingleShipItems = () => {
         <Loadding />
     }
 
-    const { ProductName, img, price, brand, grade, name, _id } = main
+    const { ProductName, img, price, brand, grade, name, _id, description, sellerEmail } = main
     refetch()
+    const sellerEmailbackend = sellerEmail
 
     const onSubmit = (from) => {
 
@@ -50,7 +59,7 @@ const SingleShipItems = () => {
         const buyingEmail = user.email
         const username = user?.displayName
 
-        let voo = { address, phone, quantity, totalprice, buyingEmail, name, img, username }
+        let voo = { address, phone, quantity, totalprice, buyingEmail, name, img, username, sellerEmailbackend }
         console.log(voo)
 
         refetch()
@@ -88,16 +97,17 @@ const SingleShipItems = () => {
             <div className='grid w-4/5 mx-auto grid-cols-2'>
                 <div>
                     <img className='mx-auto' src={img} alt="" />
+                    <p className='mt-10 font-bold text-xl'>{description}</p>
                 </div>
                 <div>
                     <div className="card w-full bg-base-100 shadow-xl">
                         <div className="card-body">
                             <h2 className="card-title">{ProductName}</h2>
-                            <p>Brand : ${brand}</p>
-                            <p>Grade : ${grade}</p>
+                            <p>Brand :{brand}</p>
+                            <p>Grade :{grade}</p>
                             <small>Id: {_id}</small>
 
-                            <b className='mt-2'>Per Pics Price : ${price}</b>
+                            <b className='mt-2'>Per Pics Price :$ {price}</b>
 
                             {/* start input */}
 
@@ -171,7 +181,29 @@ const SingleShipItems = () => {
 
 
 
-                                <p className='text-center'><button type="submit" className='btn btn-primary w-3/5 btn-outline'>Submit</button></p>
+                                {seller ?
+                                    <p className='text-center'>
+                                        {/* <button className="btn" disabled>Disabled using attribute</button> */}
+                                        <button type="submit" className='btn w-3/5 ' disabled>Submit</button>
+                                    </p>
+                                    : ""
+                                }
+
+                                {admin ?
+                                    <p className='text-center'>
+                                        {/* <button className="btn" disabled>Disabled using attribute</button> */}
+                                        <button type="submit" className='btn w-3/5 ' disabled>Submit</button>
+                                    </p>
+                                    : ""
+                                }
+
+                                {(!admin && !seller) ?
+                                    <p className='text-center'><button type="submit" className='btn btn-primary w-3/5 btn-outline'>Submit</button></p>
+
+                                    : ""
+                                }
+
+
                             </form>
 
                             {/* End */}
@@ -181,7 +213,7 @@ const SingleShipItems = () => {
                     </div>
                 </div>
 
-                <p className='mt-16'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero iusto aperiam earum nulla inventore rerum, ut alias error quam aspernatur. Alias provident quasi tempore autem minus magnam, rerum adipisci atque cupiditate, ad unde, ullam ratione hic odit ab aliquid quidem nam nesciunt consectetur incidunt? Laboriosam nam repellendus recusandae obcaecati ipsa.</p>
+
 
             </div>
         </div>

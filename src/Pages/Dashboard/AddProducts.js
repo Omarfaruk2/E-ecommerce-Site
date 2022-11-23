@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useForm } from 'react-hook-form'
+import { useQuery } from 'react-query'
 import { useNavigate } from 'react-router'
 import auth from '../../firebase.init'
+import useAdmin from '../Hooks/useAdmin'
 
 const AddProducts = () => {
 
     const [user, loading,] = useAuthState(auth)
+    const [admin] = useAdmin(user)
+
 
     const [categoryName, setCategoryName] = useState("")
     const [imgurl, setImgurl] = useState("")
@@ -17,11 +21,29 @@ const AddProducts = () => {
 
     const imgStoruageKey = "9d81a4d8cc96f4d663c965e210ea2f5b"
 
+
+
+    const { isLoading, error, data: catagorilist, refetch } = useQuery(['catagorilist'], () =>
+        fetch('http://localhost:5000/catagorilist').then(res =>
+            res.json()
+        )
+    )
+
+    if (isLoading || loading) {
+        return <p>Loading</p>
+    }
+
+    // catagorilist?.map(x => console.log(x?.idName, "hello"))
+    console.log(catagorilist, "hello data")
+
+
+
     const handlelist = () => {
         let seceltevalue = document.getElementById("list").value
-        // console.log(seceltevalu)
+        console.log(seceltevalue)
         setCategoryName(seceltevalue)
     }
+
 
 
     const onSubmit = (data) => {
@@ -52,23 +74,49 @@ const AddProducts = () => {
                         description: data.description,
                         brand: data.brand
                     }
-                    const fullFile = { sellerEmail, ...updatedate }
-                    console.log(fullFile)
 
-                    const url = "http://localhost:5000/item"
-                    fetch(url, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(fullFile)
-                    })
-                        .then(res => res.json())
-                        .then(e => {
-                            if (e.insertedId);
-                            data = {}
-                            navigate('/')
+                    if (admin) {
+
+                        const fullFile = { sellerEmail, ...updatedate }
+                        const role = "admin"
+                        const final = { role: role, ...fullFile }
+
+                        const url = "http://localhost:5000/item"
+                        fetch(url, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(final)
                         })
+                            .then(res => res.json())
+                            .then(e => {
+                                if (e.insertedId);
+                                data = {}
+                                navigate('/')
+                            })
+                    }
+
+                    else {
+                        const allFile = { sellerEmail, ...updatedate }
+                        const role = "seller"
+                        const final = { role: role, ...allFile }
+
+                        const url = "http://localhost:5000/item"
+                        fetch(url, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(final)
+                        })
+                            .then(res => res.json())
+                            .then(e => {
+                                if (e.insertedId);
+                                data = {}
+                                navigate('/')
+                            })
+                    }
 
 
                 }
@@ -78,7 +126,9 @@ const AddProducts = () => {
     }
 
 
-    console.log(imgurl, "img for file")
+    // load all catagori list
+
+
 
     return (
         <div>
@@ -110,11 +160,20 @@ const AddProducts = () => {
                             <div className="input-group">
                                 <select id='list' onChange={() => handlelist()} className="select select-bordered">
                                     <option disabled selected>Pick category</option>
-                                    <option>cement</option>
+                                    {
+                                        catagorilist?.map(x =>
+                                            <option
+                                                key={x._id}
+                                            >{x?.idName}</option>
+                                        )
+                                    }
+
+                                    {/* <option>cement</option>
                                     <option>waterTanks</option>
                                     <option>hardware</option>
                                     <option>renovation</option>
-                                    <option>decoration</option>
+                                    <option>decoration</option> */}
+
                                 </select>
                             </div>
                             {/* <input

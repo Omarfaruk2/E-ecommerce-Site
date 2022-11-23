@@ -1,5 +1,6 @@
 import React from 'react'
 import { useQuery } from 'react-query'
+import swal from 'sweetalert'
 import Loadding from '../Share/Loadding'
 
 const GetAllOrder = () => {
@@ -17,7 +18,42 @@ const GetAllOrder = () => {
         <Loadding />
     }
 
+    const handleDelete = (id) => {
+        swal({
+            title: "Are you  want to remove Catagori?",
+            text: "Once deleted, you will not be able to recover user!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+
+                if (willDelete) {
+                    refetch()
+                    swal("Successfullly remove your Catagori", {
+                        icon: "success",
+                    })
+
+                    const url = `http://localhost:5000/allorders/${id}`
+                    fetch(url, {
+                        method: "DELETE"
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data?.deletedCount > 0) {
+                                console.log(data, "Success to delete")
+                                refetch()
+                            }
+                        })
+                } else {
+                    swal("Failed to remove Catagori")
+                }
+            })
+    }
+
     console.log(data)
+
+
 
 
     return (
@@ -41,7 +77,7 @@ const GetAllOrder = () => {
 
                                 {/* <th>Date</th> */}
                                 <th>Order Cencel</th>
-                                {/* <th>Payment</th> */}
+                                <th>Payment</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -63,17 +99,11 @@ const GetAllOrder = () => {
 
                                     {/* <td>{order?.date}</td> */}
                                     <td><button
-                                        // onClick={() => handleDelete(order._id)} 
+                                        onClick={() => handleDelete(order._id)}
                                         className='btn btn-error'>Cencle</button></td>
-                                    {/* <td>
-                    {(order?.totalprice && order?.paid) && <span className='btn btn-disabled'>Cencle</span>}
-                    {(order?.totalprice && !order?.paid) && <button onClick={() => handleDelete(order._id)} className='btn btn-error'>Cencle</button>}
-                </td> */}
+                                    <td><button
 
-                                    {/* <td>
-                    {(order?.totalprice && !order?.paid) && <Link to={`/dashboard/payment/${order?._id}`}><button className='btn btn-success'>Pay</button></Link>}
-                    {(order?.totalprice && order?.paid) && <span className='text-success'>Already Paid</span>}
-                </td> */}
+                                        className='btn btn-secondary'>Pay</button></td>
 
                                 </tr>)
                             }

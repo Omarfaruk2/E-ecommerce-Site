@@ -5,11 +5,13 @@ import Login from './Pages/Authentication/Login'
 import RequireAuth from './Pages/Authentication/RequireAuth'
 import SellerLogin from './Pages/Authentication/SellerLogin'
 import SignUp from './Pages/Authentication/SignUp'
+import AddCategories from './Pages/Dashboard/AddCategories'
 import AddProducts from './Pages/Dashboard/AddProducts'
 import AllProdcts from './Pages/Dashboard/AllProdcts'
 import AllUser from './Pages/Dashboard/AllUser'
 import Dashboard from './Pages/Dashboard/Dashboard'
 import GetAllOrder from './Pages/Dashboard/GetAllOrder'
+import ManageAllCatagori from './Pages/Dashboard/ManageAllCatagori'
 import MyAddingProducts from './Pages/Dashboard/MyAddingProducts'
 import MyOrder from './Pages/Dashboard/MyOrder'
 import Home from './Pages/Home/Home'
@@ -40,9 +42,10 @@ const App = () => {
           <Route path='addProducts' element={<AddProducts />}></Route>
           <Route path='allProducts' element={<AllProdcts />}></Route>
           <Route path='myaddingProducts' element={<MyAddingProducts />}></Route>
+          <Route path='addCatagori' element={<AddCategories />}></Route>
+          <Route path='manageCatagori' element={<ManageAllCatagori />}></Route>
 
         </Route>
-
 
         <Route path='/items/:categoryName' element={
           <RequireAuth>

@@ -39,23 +39,27 @@ const Dashboard = () => {
 
                     {admin &&
                         <>
+                            <li><Link to="/dashboard/manageCatagori"><Icon icon="carbon:review" />Manage Catagori</Link></li>
+                            <li><Link to="/dashboard/addCatagori"><Icon icon="carbon:review" />Add Catagori</Link></li>
+                            <li><Link to="/dashboard/addProducts"><Icon icon="carbon:review" />Add Products</Link></li>
                             <li><Link to="/dashboard/alluser"><Icon icon="icon-park-solid:transaction-order" /> All User</Link></li>
                             <li><Link to="/dashboard/allorder"><Icon icon="carbon:review" />All Order</Link></li>
-                            <li li > <Link to="/dashboard/allProducts"><Icon icon="carbon:review" />All Products</Link></li>
+                            <li > <Link to="/dashboard/allProducts"><Icon icon="carbon:review" />All Products</Link></li>
 
                         </>
                     }
                     {seller &&
                         <>
+                            <li><Link to="/dashboard/addCatagori"><Icon icon="carbon:review" />Add Catagori</Link></li>
                             <li><Link to="/dashboard/addProducts"><Icon icon="carbon:review" />Add Products</Link></li>
                             <li><Link to="/dashboard/myaddingProducts"><Icon icon="carbon:review" />My Adding Products</Link></li>
                         </>
 
                     }
-                    {!admin & !seller &&
+                    {(!admin && !seller) ?
                         <>
                             <li><Link to="/dashboard/myorder"><Icon icon="carbon:review" />My Order</Link></li>
-                        </>
+                        </> : ""
                     }
 
 

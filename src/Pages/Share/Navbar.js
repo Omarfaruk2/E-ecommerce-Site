@@ -1,15 +1,25 @@
 import { signOut } from 'firebase/auth'
-import React from 'react'
+import React, { useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { Link, useNavigate } from 'react-router-dom'
 import logo from "../../../src/img/logo.png"
 import auth from '../../firebase.init'
+import useAdmin from '../Hooks/useAdmin'
+import useSeller from '../Hooks/useSeller'
 import Loadding from './Loadding'
 
 const Navbar = () => {
 
     const navigate = useNavigate()
     const [user, loading,] = useAuthState(auth)
+
+    const [nameUser, setNameUser] = useState("")
+
+
+    const [admin] = useAdmin(user)
+    const [seller] = useSeller(user)
+
+
 
     if (loading) {
         return <Loadding />
@@ -19,6 +29,22 @@ const Navbar = () => {
         signOut(auth)
         localStorage.removeItem("accessToken")
     }
+
+    //  if (seller) {
+    //         return setNameUser("SELLER")
+    //     }
+
+    //     if (admin) {
+    //         return setNameUser("admin")
+    //     }
+
+    //     else{
+    //         return  setNameUser("User")
+    //     }
+
+    //     console.log(nameUser, "atai asol")
+
+
 
     return (
         <div>
@@ -55,9 +81,9 @@ const Navbar = () => {
                             onClick={() => navigate("/")}
                         ><a>Home</a></li>
 
-                        <li
+                        {/* <li
                             onClick={() => navigate("/singup")}
-                        ><a>Sign Up</a></li>
+                        ><a>Sign Up</a></li> */}
 
                         <li
                             onClick={() => navigate("/dashboard")}
@@ -67,9 +93,9 @@ const Navbar = () => {
 
                         {
                             user ?
-                                <div>
+                                <li>
                                     <button className='logoutbutton' onClick={() => handlelogout()} href="">Log Out</button>
-                                </div>
+                                </li>
 
                                 :
                                 <li
@@ -81,7 +107,21 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Get started</a>
+                    {admin ?
+                        <a className="btn">Admin Panal</a>
+                        : ""
+                    }
+
+                    {seller ?
+                        <a className="btn">Seller Panal</a>
+                        : ""
+                    }
+
+                    {(!admin && !seller) ?
+                        <a className="btn">User</a>
+                        : ""
+                    }
+
                 </div>
             </div>
         </div>

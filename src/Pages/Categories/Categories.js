@@ -5,15 +5,18 @@ import Singlecatagori from './Singlecatagori'
 const Categories = () => {
 
 
-    const { isLoading, error, data: catagori, refetch } = useQuery(['repoData'], () =>
-        fetch('catagori.json').then(res =>
+    const { isLoading, error, data: catagorio, refetch } = useQuery(['repoDatdfa'], () =>
+        fetch('http://localhost:5000/catagorilist').then(res =>
             res.json()
         )
     )
-
-    if (isLoading || catagori.length === 6) {
+    if (isLoading) {
         return <p>Loading</p>
     }
+    refetch()
+
+
+
 
 
 
@@ -24,7 +27,7 @@ const Categories = () => {
             <div className='grid lg:grid-cols-4 lg-w-11/12 mx-auto  sm:grid-cols-1'>
 
                 {
-                    catagori.map((singlecatagori, index) =>
+                    catagorio.map((singlecatagori, index) =>
                         <Singlecatagori
                             singlecatagori={singlecatagori}
                             key={index}
@@ -32,7 +35,6 @@ const Categories = () => {
                     )
                 }
 
-                {/* Building matarials */}
 
             </div>
 

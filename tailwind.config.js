@@ -8,7 +8,7 @@ module.exports = {
     themes: [
       {
         doctortheme: {
-          primary: "#0FCFEC", // [navbar colour hover joono use kora hoi]
+          primary: "#ffdb00", // [navbar colour hover joono use kora hoi]
           secondary: "#19D3AE",
           accent: "#3A4256",
           neutral: "#3d4451",

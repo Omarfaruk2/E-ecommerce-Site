@@ -71,18 +71,19 @@ const AllProdcts = () => {
                             <tr>
                                 <th>Serial</th>
                                 <th>ProductName</th>
-                                <th>Seller Email:</th>
+                                <th>Addider Email:</th>
+                                <th>Who Add</th>
 
                                 <th>Id</th>
                                 <th>Price</th>
                                 <th>Image</th>
 
                                 {/* <th>Date</th> */}
-                                <th>Order Cencel</th>
+                                <th>Remove Order</th>
                                 {/* <th>Payment</th> */}
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody className='text-center'>
 
                             {
                                 data?.length === 0 && <p className=' text-2xl text-red-500'>You Have No Order yet</p>
@@ -94,8 +95,8 @@ const AllProdcts = () => {
                                     <th>{index + 1}</th>
                                     <th>{order?.ProductName}</th>
                                     <td>{order?.sellerEmail}</td>
+                                    <td> <b >[ {order?.role?.toUpperCase()} ]</b></td>
                                     <td>{order?._id}</td>
-
                                     <td>{order?.price}</td>
                                     <td><img width="50px" src={order?.img} alt="" /></td>
 

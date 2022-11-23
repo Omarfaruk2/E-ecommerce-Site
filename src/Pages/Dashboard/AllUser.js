@@ -30,6 +30,7 @@ const AllUser = () => {
                     refetch()
                     swal("Successfullly made an Admin", {
                         icon: "success",
+
                     })
 
 

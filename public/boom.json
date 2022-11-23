@@ -1,0 +1,79 @@
+[
+    {
+        "role": "seller",
+        "sellerEmail": "faruk@gmail.com",
+        "img": "https://i.ibb.co/FgsNddd/624fd8f7e76c69b501d43c9f6697bcea.jpg",
+        "categoryName": "cement",
+        "price": "544",
+        "ProductName": "cement",
+        "grade": "no grade",
+        "description": "omar faruk emon",
+        "brand": "no bramd"
+    },
+    {
+        "sellerEmail": "faruk@gmail.com",
+        "role": "seller",
+        "img": "https://i.ibb.co/2hXV32D/84409004-205585217285066-3206789631651610624-n.jpg",
+        "categoryName": "cement",
+        "price": "875",
+        "ProductName": "faruk",
+        "grade": "hello",
+        "description": "nice",
+        "brand": "squaree"
+    },
+    {
+        "sellerEmail": "boos@gmail.com",
+        "role": "seller",
+        "img": "https://i.ibb.co/Y2QHP8w/1-rvg-ZRb5-EU2k7-Ap8t-RYkv-Dg.png",
+        "categoryName": "cement",
+        "price": "54",
+        "ProductName": "Ambuja",
+        "grade": "hello",
+        "description": "sdfsdfva",
+        "brand": "no bramd"
+    },
+    {
+        "sellerEmail": "faruk@gmail.com",
+        "role": "seller",
+        "img": "https://i.ibb.co/XCs9fRz/tv.png",
+        "categoryName": "light",
+        "price": "500",
+        "ProductName": "LEd",
+        "grade": "54",
+        "description": "very good",
+        "brand": "Salma"
+    },
+    {
+        "sellerEmail": "faruk@gmail.com",
+        "role": "seller",
+        "img": "https://i.ibb.co/gjMrk30/WIN-20220422-19-19-13-Pro.jpg",
+        "categoryName": "catMetal",
+        "price": "39",
+        "ProductName": "car",
+        "grade": "54",
+        "description": "dfg",
+        "brand": "sdklfj"
+    },
+    {
+        "role": "admin",
+        "sellerEmail": "emon35293@gmail.com",
+        "img": "https://i.ibb.co/PFg5Fmr/WIN-20220422-19-19-13-Pro.jpg",
+        "categoryName": "light",
+        "price": "810",
+        "ProductName": "Omar",
+        "grade": "no grade",
+        "description": "dsf",
+        "brand": "squaree"
+    },
+    {
+        "role": "seller",
+        "sellerEmail": "boos@gmail.com",
+        "img": "https://i.ibb.co/PFg5Fmr/WIN-20220422-19-19-13-Pro.jpg",
+        "categoryName": "waterTanks",
+        "price": "41",
+        "ProductName": "Omar",
+        "grade": "no grade",
+        "description": "dfds",
+        "brand": "no bramd"
+    }
+]
