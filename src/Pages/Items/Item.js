@@ -22,7 +22,6 @@ const Item = () => {
         <Loadding />
     }
     // refetch()
-    // console.log(products)
 
 
     return (
@@ -40,8 +39,6 @@ const Item = () => {
                         />
                     )
                 }
-
-                {/* Building matarials */}
 
             </div>
 
