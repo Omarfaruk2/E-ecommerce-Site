@@ -12,7 +12,7 @@ const Item = () => {
     console.log(categoryName)
 
 
-    const { isLoading, error, data: products, refetch } = useQuery(['repoData'], () =>
+    const { isLoading, data: products, refetch } = useQuery(['repoData'], () =>
         fetch(`https://e-commarce-server.onrender.com/item/${categoryName}`).then(res =>
             res.json()
         )
