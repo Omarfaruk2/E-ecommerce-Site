@@ -10,7 +10,7 @@ const useSeller = user => {
         const email = user?.email
 
         if (email) {
-            fetch(`https://desolate-river-18269.herokuapp.com/seller/${email}`)
+            fetch(`https://e-commarce-server.onrender.com/seller/${email}`)
                 .then(res => res.json())
                 .then(data => {
                     setSeller(data.seller)

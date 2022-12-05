@@ -5,6 +5,7 @@ import { useQuery } from 'react-query'
 import { useNavigate } from 'react-router'
 import auth from '../../firebase.init'
 import useAdmin from '../Hooks/useAdmin'
+import Loadding from '../Share/Loadding'
 
 const AddProducts = () => {
 
@@ -24,13 +25,13 @@ const AddProducts = () => {
 
 
     const { isLoading, error, data: catagorilist, refetch } = useQuery(['catagorilist'], () =>
-        fetch('https://desolate-river-18269.herokuapp.com/catagorilist').then(res =>
+        fetch('https://e-commarce-server.onrender.com/catagorilist').then(res =>
             res.json()
         )
     )
 
     if (isLoading || loading) {
-        return <p>Loading</p>
+        <Loadding />
     }
 
     // catagorilist?.map(x => console.log(x?.idName, "hello"))
@@ -81,7 +82,7 @@ const AddProducts = () => {
                         const role = "admin"
                         const final = { role: role, ...fullFile }
 
-                        const url = "https://desolate-river-18269.herokuapp.com/item"
+                        const url = "https://e-commarce-server.onrender.com/item"
                         fetch(url, {
                             method: 'POST',
                             headers: {
@@ -102,7 +103,7 @@ const AddProducts = () => {
                         const role = "seller"
                         const final = { role: role, ...allFile }
 
-                        const url = "https://desolate-river-18269.herokuapp.com/item"
+                        const url = "https://e-commarce-server.onrender.com/item"
                         fetch(url, {
                             method: 'POST',
                             headers: {

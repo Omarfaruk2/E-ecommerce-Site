@@ -32,7 +32,7 @@ const SellerLogin = () => {
 
         const currentUser = { email: data?.email, displayName: displayName, role: role }
 
-        fetch(`https://desolate-river-18269.herokuapp.com/user/${data?.email}`, {
+        fetch(`https://e-commarce-server.onrender.com/user/${data?.email}`, {
             method: "PUT",
             headers: {
                 'content-type': "application/json"

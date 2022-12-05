@@ -1,17 +1,18 @@
 import React from 'react'
 import { useQuery } from 'react-query'
+import Loadding from '../Share/Loadding'
 import Singlecatagori from './Singlecatagori'
 
 const Categories = () => {
 
 
     const { isLoading, error, data: catagorio, refetch } = useQuery(['repoDatdfa'], () =>
-        fetch('https://desolate-river-18269.herokuapp.com/catagorilist').then(res =>
+        fetch('https://e-commarce-server.onrender.com/catagorilist').then(res =>
             res.json()
         )
     )
     if (isLoading) {
-        return <p>Loading</p>
+        <Loadding />
     }
     refetch()
 
@@ -27,7 +28,7 @@ const Categories = () => {
             <div className='grid lg:grid-cols-4 lg-w-11/12 mx-auto  sm:grid-cols-1'>
 
                 {
-                    catagorio.map((singlecatagori, index) =>
+                    catagorio?.map((singlecatagori, index) =>
                         <Singlecatagori
                             singlecatagori={singlecatagori}
                             key={index}

@@ -5,6 +5,7 @@ import swal from 'sweetalert'
 import auth from '../../firebase.init'
 import useAdmin from '../Hooks/useAdmin'
 import useSeller from '../Hooks/useSeller'
+import Loadding from '../Share/Loadding'
 
 const ManageAllCatagori = () => {
 
@@ -15,12 +16,12 @@ const ManageAllCatagori = () => {
     const [seller] = useSeller(user)
 
     const { isLoading, error, data: catagorio, refetch } = useQuery(['loadAllCatagori'], () =>
-        fetch('https://desolate-river-18269.herokuapp.com/catagorilist').then(res =>
+        fetch('https://e-commarce-server.onrender.com/catagorilist').then(res =>
             res.json()
         )
     )
     if (isLoading) {
-        return <p>Loading</p>
+        <Loadding />
     }
     refetch()
 
@@ -41,7 +42,7 @@ const ManageAllCatagori = () => {
                         icon: "success",
                     })
 
-                    const url = `https://desolate-river-18269.herokuapp.com/catagorilist/${id}`
+                    const url = `https://e-commarce-server.onrender.com/catagorilist/${id}`
                     fetch(url, {
                         method: "DELETE"
                     })

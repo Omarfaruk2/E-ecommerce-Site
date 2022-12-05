@@ -2,18 +2,19 @@ import React from 'react'
 import { useQuery } from 'react-query'
 import { toast } from 'react-toastify'
 import swal from 'sweetalert'
+import Loadding from '../Share/Loadding'
 
 const AllUser = () => {
 
 
     const { isLoading, error, data: alluser, refetch } = useQuery(['helluser'], () =>
-        fetch("https://desolate-river-18269.herokuapp.com/user").then(res =>
+        fetch("https://e-commarce-server.onrender.com/user").then(res =>
             res.json()
         )
     )
 
     if (isLoading) {
-        return <p>Loading</p>
+        <Loadding />
     }
 
     const makeAdmin = (email) => {
@@ -34,7 +35,7 @@ const AllUser = () => {
                     })
 
 
-                    fetch(`https://desolate-river-18269.herokuapp.com/user/admin/${email}`, {
+                    fetch(`https://e-commarce-server.onrender.com/user/admin/${email}`, {
                         method: 'PUT',
                         headers: {
                             "authorization": `Bearer ${localStorage.getItem("accessToken")}`
@@ -81,7 +82,7 @@ const AllUser = () => {
                     })
 
 
-                    const url = `https://desolate-river-18269.herokuapp.com/user/${id}`
+                    const url = `https://e-commarce-server.onrender.com/user/${id}`
                     console.log(id)
                     fetch(url, {
                         method: "DELETE"

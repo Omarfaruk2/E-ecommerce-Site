@@ -3,13 +3,14 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { useQuery } from 'react-query'
 import swal from 'sweetalert'
 import auth from '../../firebase.init'
+import Loadding from '../Share/Loadding'
 
 const MyAddingProducts = () => {
 
     const [user, loading,] = useAuthState(auth)
 
     const { isLoading, error, data, refetch } = useQuery(['addingItem'], () =>
-        fetch(`https://desolate-river-18269.herokuapp.com/itemquery?email=${user?.email}`).then(res =>
+        fetch(`https://e-commarce-server.onrender.com/itemquery?email=${user?.email}`).then(res =>
             res.json()
         )
     )
@@ -30,7 +31,7 @@ const MyAddingProducts = () => {
                         icon: "success",
                     })
 
-                    const url = `https://desolate-river-18269.herokuapp.com/item/${id}`
+                    const url = `https://e-commarce-server.onrender.com/item/${id}`
                     fetch(url, {
                         method: "DELETE"
                     })
@@ -51,7 +52,7 @@ const MyAddingProducts = () => {
 
 
     if (isLoading || loading) {
-        return <p>Loading</p>
+        <Loadding />
     }
     // refetch()
     console.log(data)

@@ -10,7 +10,7 @@ const AllProdcts = () => {
     const [user, loading,] = useAuthState(auth)
 
     const { isLoading, error, data, refetch } = useQuery(['allItems'], () =>
-        fetch("https://desolate-river-18269.herokuapp.com/item").then(res =>
+        fetch("https://e-commarce-server.onrender.com/item").then(res =>
             res.json()
         )
     )
@@ -33,7 +33,7 @@ const AllProdcts = () => {
                         icon: "success",
                     })
 
-                    const url = `https://desolate-river-18269.herokuapp.com/item/${id}`
+                    const url = `https://e-commarce-server.onrender.com/item/${id}`
                     fetch(url, {
                         method: "DELETE"
                     })

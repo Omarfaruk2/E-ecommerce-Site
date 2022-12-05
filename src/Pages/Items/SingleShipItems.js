@@ -33,7 +33,7 @@ const SingleShipItems = () => {
 
 
     const { isLoading, error, data, refetch } = useQuery(['repoData'], () =>
-        fetch(`https://desolate-river-18269.herokuapp.com/item/${categoryName}/${id}`).then(res =>
+        fetch(`https://e-commarce-server.onrender.com/item/${categoryName}/${id}`).then(res =>
             res.json()
         )
     )
@@ -65,7 +65,7 @@ const SingleShipItems = () => {
         refetch()
 
 
-        const url = "https://desolate-river-18269.herokuapp.com/myorders"
+        const url = "https://e-commarce-server.onrender.com/myorders"
         fetch(url, {
             method: 'POST',
             headers: {

@@ -9,7 +9,7 @@ const MyOrder = () => {
     const [user, loading,] = useAuthState(auth)
 
     const { isLoading, error, data, refetch } = useQuery(['myOrdersd'], () =>
-        fetch(`https://desolate-river-18269.herokuapp.com/myorders?email=${user.email}`).then(res =>
+        fetch(`https://e-commarce-server.onrender.com/myorders?email=${user.email}`).then(res =>
             res.json()
         )
     )

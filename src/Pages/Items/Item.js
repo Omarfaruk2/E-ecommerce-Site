@@ -1,6 +1,7 @@
 import React from 'react'
 import { useQuery } from 'react-query'
 import { useParams } from 'react-router'
+import Loadding from '../Share/Loadding'
 import SingleItems from './SingleItems'
 
 const Item = () => {
@@ -12,13 +13,13 @@ const Item = () => {
 
 
     const { isLoading, error, data: products, refetch } = useQuery(['repoData'], () =>
-        fetch(`https://desolate-river-18269.herokuapp.com/item/${categoryName}`).then(res =>
+        fetch(`https://e-commarce-server.onrender.com/item/${categoryName}`).then(res =>
             res.json()
         )
     )
 
     if (isLoading) {
-        return <p>Loading</p>
+        <Loadding />
     }
     // refetch()
     // console.log(products)
@@ -31,7 +32,7 @@ const Item = () => {
             <div className='grid lg:grid-cols-4 lg-w-11/12 mx-auto  sm:grid-cols-1'>
 
                 {
-                    products.map((singleProducts, index) =>
+                    products?.map((singleProducts, index) =>
                         <SingleItems
                             singleProducts={singleProducts}
                             key={index}

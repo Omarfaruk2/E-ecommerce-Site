@@ -10,7 +10,7 @@ const useAdmin = user => {
         const email = user?.email
 
         if (email) {
-            fetch(`https://desolate-river-18269.herokuapp.com/admin/${email}`)
+            fetch(`https://e-commarce-server.onrender.com/admin/${email}`)
                 .then(res => res.json())
                 .then(data => {
                     setAdmin(data.admin)
