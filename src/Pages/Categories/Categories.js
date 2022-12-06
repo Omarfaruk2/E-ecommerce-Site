@@ -25,7 +25,7 @@ const Categories = () => {
         <div className='my-20'>
             <h2 className='text-center font-bold text-4xl'>Categories</h2>
 
-            <div className='grid lg:grid-cols-4 lg-w-11/12 mx-auto  sm:grid-cols-1'>
+            <div className='grid lg:grid-cols-5 sm:grid-cols-2 gap-y-10 lg:w-11/12 mx-auto'>
 
                 {
                     catagorio?.map((singlecatagori, index) =>

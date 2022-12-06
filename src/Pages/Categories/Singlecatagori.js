@@ -17,7 +17,7 @@ const Singlecatagori = ({ singlecatagori }) => {
                 // to={"/tour/japan"}
                 to={`items/${idName}`}
             >
-                <div className="card lg:w-11/12 mx-auto bg-base-100 shadow-xl">
+                <div className="card lg:w-11/12 h-full mx-auto bg-base-100 shadow-xl hover:shadow-2xl">
                     <div className="card-body">
                         <img src={img} alt="" />
                         <h2 className="card-title">{name}</h2>

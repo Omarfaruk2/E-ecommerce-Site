@@ -52,6 +52,7 @@ const Dashboard = () => {
                         <>
                             <li><Link to="/dashboard/addCatagori"><Icon icon="carbon:review" />Add Catagori</Link></li>
                             <li><Link to="/dashboard/addProducts"><Icon icon="carbon:review" />Add Products</Link></li>
+                            <li><Link to="/dashboard/myCustomerOrder"><Icon icon="carbon:review" />My Customer Order</Link></li>
                             <li><Link to="/dashboard/myaddingProducts"><Icon icon="carbon:review" />My Adding Products</Link></li>
                         </>
 

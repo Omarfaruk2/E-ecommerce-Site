@@ -14,6 +14,7 @@ import GetAllOrder from './Pages/Dashboard/GetAllOrder'
 import ManageAllCatagori from './Pages/Dashboard/ManageAllCatagori'
 import MyAddingProducts from './Pages/Dashboard/MyAddingProducts'
 import MyOrder from './Pages/Dashboard/MyOrder'
+import SellerOwnCustomerOrdersList from './Pages/Dashboard/SellerOwnCustomerOrdersList'
 import Home from './Pages/Home/Home'
 import Item from './Pages/Items/Item'
 import SingleShipItems from './Pages/Items/SingleShipItems'
@@ -44,6 +45,7 @@ const App = () => {
           <Route path='myaddingProducts' element={<MyAddingProducts />}></Route>
           <Route path='addCatagori' element={<AddCategories />}></Route>
           <Route path='manageCatagori' element={<ManageAllCatagori />}></Route>
+          <Route path='myCustomerOrder' element={<SellerOwnCustomerOrdersList />}></Route>
 
         </Route>
 

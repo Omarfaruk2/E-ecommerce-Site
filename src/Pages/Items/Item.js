@@ -26,9 +26,8 @@ const Item = () => {
 
     return (
         <div>
-            <h2>{categoryName}</h2>
 
-            <div className='grid lg:grid-cols-4 lg-w-11/12 mx-auto  sm:grid-cols-1'>
+            <div className='grid lg:grid-cols-4 lg-w-11/12 mx-auto mt-10 sm:grid-cols-1'>
 
                 {
                     products?.map((singleProducts, index) =>
