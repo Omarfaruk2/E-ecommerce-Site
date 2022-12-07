@@ -31,7 +31,7 @@ const SellerOwnCustomerOrdersList = () => {
     return (
         <div>
             <h3>Hello, Seller Orders
-                <span className='text-primary'> {sellerOrders?.length}</span>
+                <span className='text-primary text-2xl'> {sellerOrders?.length}</span>
             </h3>
         </div>
     )
